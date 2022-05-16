@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	
+	<bean id="localeResolver" class="org.springframework.web.servlet.i18n.SessionLocaleResolver"/>
+	
+	<!-- bundle : 다국어 번역 -->
+	<bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+		<property name="basenames">
+			<list>
+				<value>classpath:locale/messages</value> <!-- package locale에서 messages.properties 읽어들인다. -->
+			</list>
+		</property>
+		<property name="defaultEncoding" value="utf-8" /> <!-- 파일기본인코딩, 한글 깨짐방지 -->
+		<property name="cacheSeconds" value="60" /> <!-- properties 파일이 변경되었는지 확인하는 주기 -->
+	</bean>
+
+
+</beans>

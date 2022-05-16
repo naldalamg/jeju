@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="file">
+
+<!-- 여기서 안되면 parameterType 추가 할 것 -->
+	<insert id="insertFileUpload" parameterType="java.util.Map">
+		INSERT INTO SUIT_ATTACH
+			(
+			FILENO,
+			FILENAME,
+			STORED_FILENAME,
+			BOARD_NO
+			)
+		VALUES
+			(
+			TO_CHAR(SYSDATE,'DD')||LPAD(SEQ_FILE_NO.NEXTVAL,4,0),
+			#{fileName},
+			#{stored_fileName},
+			#{board_no}
+			)
+	</insert>
+
+
+
+</mapper>

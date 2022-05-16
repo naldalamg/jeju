@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.project.jeju.common.dao.LoginDAO">
+
+	<select id="selectUser" resultType="userVO">
+		SELECT 
+			ADMIN_ID, ADMIN_PW, ADMIN_AUTH,
+			CASE WHEN ADMIN_ENABLED = 'Y' THEN 1 ELSE 0 END ADMIN_ENABLED
+		FROM ADMINS WHERE ADMIN_ID=#{param1}
+	</select>
+	
+	<select id="getAuthList" resultType="String">
+		SELECT ADMIN_AUTH FROM ADMINS WHERE ADMIN_ID=#{param1}
+	</select>
+  
+</mapper>

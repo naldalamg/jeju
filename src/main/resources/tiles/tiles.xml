@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+"http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+
+<!-- jsp는 반드시 이곳에서 지정한 경로와 일치해야 한다. -->
+<tiles-definitions>
+	
+	<!-- 공통레이아웃 -->
+	<definition name="baseLayout" template="/WEB-INF/views/common/layout.jsp">
+		<put-attribute name="title" value="" />	
+		<put-attribute name="header" value="/WEB-INF/views/common/header.jsp" />	
+		<!-- <put-attribute name="side" value="/WEB-INF/views/common/side.jsp" />	 -->
+		<put-attribute name="body" value="" />	
+		<put-attribute name="footer" value="/WEB-INF/views/common/footer.jsp" />	
+	</definition>
+	
+	
+	<definition name="home" extends="baseLayout"><!-- 메인화면, 기본적인것은 baseLayout상속 -->
+		<put-attribute name="title" value="메인페이지" />
+		<put-attribute name="body" value="/WEB-INF/views/home.jsp" />
+	</definition>
+	
+	<definition name="login" extends="baseLayout"><!-- 메인화면, 기본적인것은 baseLayout상속 -->
+		<put-attribute name="title" value="로그인페이지" />
+		<put-attribute name="body" value="/WEB-INF/views/login/login.jsp" />
+	</definition>
+	
+	<definition name="signForm" extends="baseLayout"><!-- 메인화면, 기본적인것은 baseLayout상속 -->
+		<put-attribute name="title" value="관리자 등록 페이지" />
+		<put-attribute name="body" value="/WEB-INF/views/admin/signForm.jsp" />
+	</definition>
+	
+	<definition name="fileUpload" extends="baseLayout">
+		<put-attribute name="title" value="첨부파일 페이지" />
+		<put-attribute name="body" value="/WEB-INF/views/file/fileUpload.jsp" />
+	</definition>
+
+</tiles-definitions>

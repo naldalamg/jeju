@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.project.jeju.admin.dao.AdminDAO">
+
+	<insert id="addAdmin" parameterType="adminVO">
+		INSERT INTO ADMINS
+			(
+			ADMIN_ID, ADMIN_PW, 
+			ADMIN_PW_PERIOD, ADMIN_NAME,
+			ADMIN_ID_REG,
+			ADMIN_ENABLED, ADMIN_AUTH
+			)
+			VALUES
+			(
+			#{admin_id}, #{admin_pw},
+			sysdate+(INTERVAL '3' MONTH), #{admin_name},
+			sysdate,
+			'Y', #{admin_auth} 
+			)
+	</insert>
+
+</mapper>
